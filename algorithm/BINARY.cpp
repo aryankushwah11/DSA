@@ -1,29 +1,27 @@
 #include<bits/stdc++.h>
-
+using namespace std;
 int main() {
-    std::vector<int> v;
+    vector<int> v;
     int n, value;
 
-    std::cout << "Enter number of elements: ";
-    std::cin >> n;
+    cout << "Enter number of elements: ";
+    cin >> n;
 
-    std::cout << "Enter " << n << " sorted elements:\n";
+    cout << "Enter " << n << " sorted elements:\n";
     for (int i = 0; i < n; ++i) {
         int x;
         std::cin >> x;
         v.push_back(x);
     }
 
-    std::cout << "Enter value to search: ";
-    std::cin >> value;
-
-    // Use bool to store result of binary_search
-    bool found = std::binary_search(v.begin(), v.end(), value);
+    cout << "Enter value to search: ";
+    cin >> value;
+    bool found =binary_search(v.begin(), v.end(), value);
 
     if (found) {
-        std::cout << "Element found in the vector." << std::endl;
+        cout << "Element found in the vector.";
     } else {
-        std::cout << "Element not found in the vector." << std::endl;
+        cout << "Element not found in the vector.";
     }
 
     return 0;
