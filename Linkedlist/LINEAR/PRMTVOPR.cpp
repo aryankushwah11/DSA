@@ -7,7 +7,8 @@ struct node {
 };
 
 struct node* getnode() {
-    struct node *g = new node;
+    struct node *g;
+    g=(struct node*)malloc(sizeof(struct node));
     g->next = NULL;
     return g;
 }
