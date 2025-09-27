@@ -5,6 +5,14 @@ struct node {
     int data;
     struct node *next;
 };
+void traverse(struct node* start) {
+    struct node* ptr = start;
+    while (ptr != NULL) {
+        cout << ptr->data << " ";
+        ptr = ptr->next;
+    }
+    cout << endl;
+}
 
 struct node* getnode() {
     struct node *g;
@@ -52,25 +60,27 @@ struct node* insafter(struct node* start, int key, int x) {
         q->next = ptr->next;
         ptr->next = q;
     }
+    traverse(start);
     return start;
-}
-void traverse(struct node* start) {
-    struct node* ptr = start;
-    while (ptr != NULL) {
-        cout << ptr->data << " ";
-        ptr = ptr->next;
-    }
-    cout << endl;
 }
 
 int main() {
     struct node* start = NULL;
     int choice, val, key, n;
+    cout << "Enter number of elements for initial linked list: ";
+    cin >> n;
+    cout << "Enter " << n << " values: ";
+    for (int i = 0; i < n; ++i) {
+        cin >> val;
+        start = insend(start, val);
+    }
+
         cout << "\nMenu:\n";
         cout << "1. Insert at beginning\n";
         cout << "2. Insert at end\n";
         cout << "3. Insert after a node\n";
         cout << "4. Traverse list\n";
+        cout << "5. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
         switch (choice) {
@@ -94,6 +104,9 @@ int main() {
             case 4:
                 cout << "Linked list: ";
                 traverse(start);
+                break;
+            case 5:
+                cout << "Exiting...\n";
                 break;
             default:
                 cout << "Invalid choice. Try again.\n";
